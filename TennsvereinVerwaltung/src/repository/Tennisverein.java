@@ -10,4 +10,18 @@ import java.util.List;
 public class Tennisverein {
   List<Member> memberList;
   List<Game> gameList;
+  
+  public List<Member> getMemberList() {
+    return memberList;
+  }
+  public void setMemberList(List<Member> memberList) {
+    this.memberList = memberList;
+  }
+  public List<Game> getGameList() {
+    return gameList;
+  }
+  public void setGameList(List<Game> gameList) {
+    this.gameList = gameList;
+  }
+  
 }

@@ -12,9 +12,9 @@ import repository.Game;
 import repository.Member;
 
 /**
- * Kurzbeschreibung der Klasse
+ * FA21
  * @version 1.0 vom 17.09.2014
- * @author Manfred Mustermann
+ * @author Andreas Lau, Vivian Fuhl
  */
 public class XML implements IData {
 	List<Member> listOfMembers;

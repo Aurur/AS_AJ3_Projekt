@@ -73,15 +73,17 @@ public class XML implements IData {
 
   @Override
   public boolean createGame(Date date, Member memberOne, Member memberTwo) {
-    XMLEncoder e;
-    try {
-      e = new XMLEncoder(new BufferedOutputStream(new FileOutputStream("Test.xml")));
-    } catch (FileNotFoundException e1) {
-      return false;
-    }
-    e.writeObject("test1");
-    e.close();
-    return true;
+	Game game = new Game(date, memberOne, memberTwo);
+  	List<Game> games = getAllGames();
+  	games.add(game);
+  try {
+    serializeObjectToXML("Games.xml", games);
+  } catch (Exception e) {
+    // TODO Auto-generated catch block
+    e.printStackTrace();
+    return false;
+  }
+  return true;
   }
 
   @Override

@@ -3,7 +3,7 @@ package controller;
 import java.util.Date;
 import java.util.List;
 
-import data.XML;
+import data.IData;
 
 import repository.Game;
 import repository.Member;
@@ -15,18 +15,18 @@ import repository.Member;
  */
 public class Controller implements IController{
 
-  private XML data;
+  private IData data;
   
   
-  public XML getData() {
+  public IData getData() {
     return data;
   }
 
-  public void setData(XML data) {
+  public void setData(IData data) {
     this.data = data;
   }
 
-  public Controller(XML data) {
+  public Controller(IData data) {
     super();
     this.data = data;
   }
@@ -38,8 +38,14 @@ public class Controller implements IController{
   }
 
   @Override
-  public List<Member> getListOfMembers() {
-    return data.getListOfMembers();
+  public String[][] getListOfMembers() {
+	  List<Member> memberList = data.getListOfMembers();
+	  String [][] memberArray = new String[memberList.size()][2];
+	  for(int i=0;i<memberList.size();i++){
+		  memberArray[i][0]=memberList.get(i).getFirstname();
+		  memberArray[i][1]=memberList.get(i).getLastname();
+	  }
+    return memberArray;
   }
 
   @Override
@@ -48,8 +54,16 @@ public class Controller implements IController{
   }
 
   @Override
-  public List<Game> getListOfGames(Member member) {
-    return data.getListOfGames(member);
+  public String[][] getListOfGames(Member member) {
+	  
+	  List<Game> gameList = data.getListOfGames(member);
+	  String [][] gameArray = new String[gameList.size()][3];
+	  for(int i=0;i<gameList.size();i++){
+		  gameArray[i][0]=gameList.get(i).getDate().toString();
+		  gameArray[i][1]=gameList.get(i).getMemberOne().getFirstname() + " " + gameList.get(i).getMemberOne().getLastname();
+		  gameArray[i][2]=gameList.get(i).getMemberTwo().getFirstname() + " " + gameList.get(i).getMemberTwo().getLastname();
+		  }
+    return gameArray;
   }
 
   

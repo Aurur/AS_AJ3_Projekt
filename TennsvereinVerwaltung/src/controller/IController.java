@@ -13,7 +13,7 @@ import repository.Member;
 
 public interface IController {
 	public boolean createMember(String lastname, String firstname);
-	public List<Member> getListOfMembers();
+	public String[][] getListOfMembers();
 	public boolean createGame(Date date, Member memberOne, Member memberTwo);
-	public List<Game> getListOfGames(Member member);
+	public String[][] getListOfGames(Member member);
 }

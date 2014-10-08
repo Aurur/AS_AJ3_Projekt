@@ -38,12 +38,12 @@ public class Controller implements IController{
   }
 
   @Override
-  public String[][] getListOfMembers() {
+  public String[] getListOfMembers() {
 	  List<Member> memberList = data.getListOfMembers();
-	  String [][] memberArray = new String[memberList.size()][2];
+	  String [] memberArray = new String[memberList.size()];
 	  for(int i=0;i<memberList.size();i++){
-		  memberArray[i][0]=memberList.get(i).getFirstname();
-		  memberArray[i][1]=memberList.get(i).getLastname();
+		  memberArray[i]=memberList.get(i).getFirstname() + " " + memberList.get(i).getLastname();
+		  
 	  }
     return memberArray;
   }
